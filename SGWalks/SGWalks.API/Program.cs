@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SGWalks.API.Data;
+using SGWalks.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,10 @@ builder.Services.AddDbContext<SGWalksContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SGWalks"));
 });
+
+builder.Services.AddScoped<IRegionRepositorty, RegionRepositry>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 
