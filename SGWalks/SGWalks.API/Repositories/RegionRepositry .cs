@@ -31,7 +31,7 @@ namespace SGWalks.API.Repositories
             }
             //delete 
 
-             sGWalksContext.Regions.Remove(region);
+            sGWalksContext.Regions.Remove(region);
             await sGWalksContext.SaveChangesAsync();
            
             return region;
